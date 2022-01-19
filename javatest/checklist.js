@@ -85,21 +85,19 @@ let flechegauche = function (container, containerid) {
   );
 
   bouton[1].addEventListener("click", function () {
-    if (window["imgactive" + containerid] >= 1 && window["imgactive" + containerid] < 4) {
-      for (img = 0; img < container.length; img++) {
-        container[img].classList.add("hide");
-      }
-      window["imgactive" + containerid] -= 1;
-      if (window["imgactive" + containerid] < 0) {
-        window["imgactive" + containerid] = 0
-      }
+    for (img = 0; img < container.length; img++) {
+      container[img].classList.add("hide");
+    }
+    window["imgactive" + containerid] -= 1;
+    if (window["imgactive" + containerid] < 0) {
+      window["imgactive" + containerid] = 0
+    }
     for (
-        img_pos = window["imgactive" + containerid];
-        img_pos < window["imgactive" + containerid] + 4;
-        img_pos++
-      ) {
-          container[img_pos].classList.remove("hide");
-      }
+      img_pos = window["imgactive" + containerid];
+      img_pos < window["imgactive" + containerid] + 4;
+      img_pos++
+    ) {
+        container[img_pos].classList.remove("hide");
     }
   });
 };
