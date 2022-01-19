@@ -1,59 +1,8 @@
-var imgactive1 = 1;
-var imgactive2 = 1;
-var imgactive3 = 1;
-var imgactive4 = 1;
-document.querySelector(".close").addEventListener("click", function () {
-  let modal = document.querySelector("#modal-template");
-  modal.classList.add("hide");
-});
-let imgfetch = function (containerimg) {
-  containerimg.forEach((element) => {
-    element.addEventListener("click", function () {
-      const list_string = this.className.split("_");
-      id = list_string[1];
-      fetch("http://localhost:8000/api/v1/titles/" + id)
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (data) {
-          let modal = document.querySelector("#modal-template");
-          modal.classList.remove("hide");
-          const variables = {
-            "movie-title": data.title,
-            "movie-img":
-              '<img src="' +
-              data.image_url +
-              '" alt="' +
-              data.image_url +
-              '"/>',
-            "movie-genres": data.genres.map((el) => {
-              return el;
-            }),
-            "movie-date": data.date_published,
-            "movie-rated": data.rated,
-            "movie-imdb_score": data.imdb_score,
-            "movie-directors": data.directors.map((el) => {
-              return el;
-            }),
-            "movie-actors": data.actors.map((el) => {
-              return el;
-            }),
-            "movie-duration": data.duration,
-            "movie-countries": data.countries.map((el) => {
-              return el;
-            }),
-            "movie-boxoffice-usa": data.usa_gross_income,
-            "movie-boxoffice-worldwide": data.worldwide_gross_income,
-            "movie-description": data.description,
-          };
-          for (const [key, value] of Object.entries(variables)) {
-            var span = document.getElementsByClassName(key)[0];
-            span.innerHTML = value;
-          }
-        });
-    });
-  });
-};
+var imgactive1 = 0;
+var imgactive2 = 0;
+var imgactive3 = 0;
+var imgactive4 = 0;
+
 fetch(
   "http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains="
 )
@@ -74,6 +23,7 @@ fetch(
     containerimg = container.querySelectorAll("img");
     imgfetch(containerimg);
   });
+
 function carrousel(genre, containerid) {
   let imgactive = 1;
   url =
@@ -104,6 +54,7 @@ function carrousel(genre, containerid) {
       imgfetch(container);
     });
 }
+
 var img_pos = 0;
 let flechedroite = function (container, containerid) {
   let bouton = document.querySelectorAll(
@@ -111,9 +62,12 @@ let flechedroite = function (container, containerid) {
   );
 
   bouton[0].addEventListener("click", function () {
-    if (window["imgactive" + containerid] < 4) {
       for (img = 0; img < container.length; img++) {
         container[img].classList.add("hide");
+      }
+      window["imgactive" + containerid] += 1;
+      if (window["imgactive" + containerid] > container.length - 4) {
+        window["imgactive" + containerid] = container.length - 4
       }
       for (
         img_pos = window["imgactive" + containerid];
@@ -122,9 +76,6 @@ let flechedroite = function (container, containerid) {
       ) {
         container[img_pos].classList.remove("hide");
       }
-
-      window["imgactive" + containerid] += 1;
-    }
   });
 };
 
@@ -134,23 +85,20 @@ let flechegauche = function (container, containerid) {
   );
 
   bouton[1].addEventListener("click", function () {
-    if (window["imgactive" + containerid] < 4) {
+    if (window["imgactive" + containerid] >= 1 && window["imgactive" + containerid] < 4) {
       for (img = 0; img < container.length; img++) {
         container[img].classList.add("hide");
       }
-      if (img_pos != 0) {
-        for (
-          img_pos = window["imgactive" + containerid];
-          img_pos < window["imgactive" + containerid] + 4;
-          img_pos++
-        ) {
-          if (img_pos != 0) {
-            container[img].classList.remove("hide");
-          }
-        }
-        if (img_pos != 0) {
-          window["imgactive" + containerid] -= 1;
-        }
+      window["imgactive" + containerid] -= 1;
+      if (window["imgactive" + containerid] < 0) {
+        window["imgactive" + containerid] = 0
+      }
+    for (
+        img_pos = window["imgactive" + containerid];
+        img_pos < window["imgactive" + containerid] + 4;
+        img_pos++
+      ) {
+          container[img_pos].classList.remove("hide");
       }
     }
   });
