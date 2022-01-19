@@ -1,0 +1,158 @@
+header {
+  overflow: hidden;
+  background-color: darkgray;
+}
+#header {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+.Acceuil {
+  font-size: 4em;
+  text-align: center;
+  padding-bottom: 1%;
+}
+.Categories {
+  font-size: 4em;
+  text-align: right;
+  padding-bottom: 1%;
+}
+body {
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: rgb(228, 223, 220);
+  background-size: cover;
+}
+#meilleurfilm {
+  text-align: center;
+}
+#carrousel1 {
+  width: 800px;
+  height: 300px;
+  border: solid 4px #ffff;
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.3);
+  position: relative;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+#carrousel2 {
+  width: 800px;
+  height: 300px;
+  border: solid 4px #ffff;
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.3);
+  position: relative;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+#carrousel3 {
+  width: 800px;
+  height: 300px;
+  border: solid 4px #ffff;
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.3);
+  position: relative;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+#carrousel4 {
+  width: 800px;
+  height: 300px;
+  border: solid 4px #ffff;
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.3);
+  position: relative;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+.container {
+  width: 800px;
+  height: 300px;
+}
+.photo {
+  width: 800px;
+  height: 400px;
+  margin: 0;
+  display: inline-block;
+  background-size: cover;
+}
+.bouton {
+  position: absolute;
+  width: 70px;
+  cursor: pointer;
+  top: 120px;
+}
+.boutondroite {
+  right: 0;
+  opacity: 0.4;
+  transform: rotate(0deg);
+  transition: all 0.3s ease;
+}
+.boutongauche {
+  left: 0;
+  opacity: 0.4;
+  transform: rotate(180deg);
+  transition: all 0.3s ease;
+}
+.boutondroite:hover {
+  transform: rotate(0deg) scale(1.1);
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+.boutongauche:hover {
+  transform: rotate(180deg) scale(1.1);
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+#modal-template {
+  position: fixed;
+  top: 100px;
+  width: 480px;
+  height: 600px;
+  left: 2%;
+  background-color: darkgray;
+}
+.hide {
+  display: none;
+}
+.close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 25px;
+  height: 25px;
+  background: linear-gradient(
+      to bottom,
+      transparent 35%,
+      rgb(15, 0, 0) 35%,
+      rgb(7, 0, 0) 65%,
+      transparent 65%
+    ),
+    linear-gradient(
+      to right,
+      transparent 35%,
+      rgb(8, 0, 0) 35%,
+      rgb(2, 0, 0) 65%,
+      transparent 65%
+    );
+  transform: rotate(45deg);
+}
+#container1 {
+  display: flex;
+  justify-content: center;
+}
+#container2 {
+  display: flex;
+  justify-content: center;
+}
+#container3 {
+  display: flex;
+  justify-content: center;
+}
+#container4 {
+  display: flex;
+  justify-content: center;
+}

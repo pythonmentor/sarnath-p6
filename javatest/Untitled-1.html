@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stylesheet.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <div id="header">
+        <div class="logo"><img src="img/streamit.png" alt="" /></div>
+        <div class="Acceuil">Accueil</div>
+        <div class="Categories">Catégories</div>
+      </div>
+    </header>
+    <div id="meilleurfilm"></div>
+    <div id="modal-template" class="hide">
+      <span class="close"></span>
+      <div>
+        <span class="bold">Titre :</span> <span class="movie-title"></span>
+      </div>
+      <div>
+        <span class="movie-img"></span>
+      </div>
+      <div>
+        <span class="bold">Genre(s) :</span> <span class="movie-genres"></span>
+      </div>
+      <div>
+        <span class="bold">Date de sortie :</span>
+        <span class="movie-date"></span>
+      </div>
+      <div>
+        <span class="bold">Rating :</span> <span class="movie-rated"></span>
+      </div>
+      <div>
+        <span class="bold">Score IMDB :</span>
+        <span class="movie-imdb_score"></span>
+      </div>
+      <div>
+        <span class="bold">Réalisateur(s) :</span>
+        <span class="movie-directors"></span>
+      </div>
+      <div>
+        <span class="bold">Acteur(s) :</span> <span class="movie-actors"></span>
+      </div>
+      <div>
+        <span class="bold">Durée :</span> <span class="movie-duration"></span>
+      </div>
+      <div>
+        <span class="bold">Pays d'origine :</span>
+        <span class="movie-countries"></span>
+      </div>
+      <div>
+        <span class="bold">Box Office USA :</span>
+        <span class="movie-boxoffice-usa"></span>
+      </div>
+      <div>
+        <span class="bold">Box Office Wordwide :</span>
+        <span class="movie-boxoffice-worldwide"></span>
+      </div>
+      <div>
+        <span class="bold">Description :</span>
+        <span class="movie-description"></span>
+      </div>
+    </div>
+    <div id="carrousel1">
+      <div class="container" id="container1"></div>
+      <img src="img/fleche.png" class="boutondroite bouton" id="d1" />
+      <img src="img/fleche.png" class="boutongauche bouton" id="g1" />
+    </div>
+    <div id="carrousel2">
+      <div class="container" id="container2"></div>
+      <img src="img/fleche.png" class="boutondroite bouton" id="d2" />
+      <img src="img/fleche.png" class="boutongauche bouton" id="g2" />
+    </div>
+    <div id="carrousel3">
+      <div class="container" id="container3"></div>
+      <img src="img/fleche.png" class="boutondroite bouton" id="d3" />
+      <img src="img/fleche.png" class="boutongauche bouton" id="g3" />
+    </div>
+    <div id="carrousel4">
+      <div class="container" id="container4"></div>
+      <img src="img/fleche.png" class="boutondroite bouton" id="d4" />
+      <img src="img/fleche.png" class="boutongauche bouton" id="g4" />
+    </div>
+
+    <script src="checklist.js"></script>
+  </body>
+</html>
